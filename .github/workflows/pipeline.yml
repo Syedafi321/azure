@@ -1,0 +1,19 @@
+name: Azure SCP
+
+on:
+  # Trigger the workflow manually or on a specific event
+  workflow_dispatch:
+
+jobs:
+
+  azure-scp:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Login to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
